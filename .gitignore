@@ -1,0 +1,19 @@
+# Maven/Gradle
+/.mvn/
+/build/
+/target/
+/.gradle/
+/out/
+
+# IDEs
+/.idea/
+/*.iml
+*.class
+
+# Logs y temporales
+*.log
+*.tmp
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
