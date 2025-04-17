@@ -6,4 +6,5 @@ public interface FranquiciaService {
 
     FranquiciaDto crearFranquicia(FranquiciaDto franquiciaDto);
     FranquiciaDto obtenerFranquiciaPorId(Long id);
+    FranquiciaDto actualizarNombreFranquicia(Long id, String nuevoNombre);
 }

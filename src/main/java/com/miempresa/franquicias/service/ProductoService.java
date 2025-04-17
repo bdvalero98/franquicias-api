@@ -14,4 +14,6 @@ public interface ProductoService {
     void eliminarProducto(Long productoId);
 
     ProductoDto actualizarStock(Long productoId, Integer nuevoStock);
+
+    ProductoDto actualizarNombre(Long productoId, String nuevoNombre);
 }

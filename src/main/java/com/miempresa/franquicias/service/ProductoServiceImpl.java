@@ -89,4 +89,17 @@ public class ProductoServiceImpl implements ProductoService {
 
         return new ProductoDto(producto.getId(), producto.getNombre(), producto.getStock(), producto.getSucursal().getId());
     }
+
+    @Override
+    public ProductoDto actualizarNombre(Long productoId, String nuevoNombre) {
+        if (nuevoNombre == null || nuevoNombre.trim().isEmpty()) {
+            throw new IllegalArgumentException("El nombre no puede estar vacío");
+        }
+
+        Producto producto = productoRepository.findById(productoId)
+                .orElseThrow(() -> new NotFoundException("Producto no encontrado"));
+        producto.setNombre(nuevoNombre);
+        Producto actualizado = productoRepository.save(producto);
+        return new ProductoDto(actualizado.getId(), actualizado.getNombre(), actualizado.getStock(), actualizado.getSucursal().getId());
+    }
 }
