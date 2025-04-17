@@ -33,4 +33,9 @@ public class ProductoController {
     public ProductoDto actualizarStock(@PathVariable Long productoId, @RequestParam Integer nuevoStock) {
         return service.actualizarStock(productoId, nuevoStock);
     }
+
+    @GetMapping("/top-stock/franquicia/{franquiciaId}")
+    public List<ProductoDto> topStockPorFranquicia(@PathVariable Long franquiciaId) {
+        return service.obtenerTopStockPorSucursalDeFranquicia(franquiciaId);
+    }
 }

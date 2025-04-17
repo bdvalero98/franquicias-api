@@ -9,6 +9,8 @@ public interface ProductoService {
 
     List<ProductoDto> listarPorSucursal(Long sucursalId);
 
+    List<ProductoDto> obtenerTopStockPorSucursalDeFranquicia(Long franquiciaId);
+
     void eliminarProducto(Long productoId);
 
     ProductoDto actualizarStock(Long productoId, Integer nuevoStock);
