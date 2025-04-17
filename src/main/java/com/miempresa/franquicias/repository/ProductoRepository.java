@@ -1,13 +1,13 @@
 package com.miempresa.franquicias.repository;
 
-import com.miempresa.franquicias.model.Sucursal;
+import com.miempresa.franquicias.model.Producto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface SucursalRepository extends JpaRepository<Sucursal, Long> {
+public interface ProductoRepository extends JpaRepository<Producto, Long> {
 
-    List<Sucursal> findByFranquiciaId(Long franquiciaId);
+    List<Producto> findBySucursalId(Long sucursalId);
 }
