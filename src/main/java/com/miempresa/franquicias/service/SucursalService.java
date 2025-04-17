@@ -9,4 +9,6 @@ public interface SucursalService {
     SucursalDto crearSucursal(SucursalDto sucursalDto);
 
     List<SucursalDto> listarSucursalesPorFranquicia(Long franquiciaId);
+
+    SucursalDto actualizarNombreSucursal(Long sucursalId, String nuevoNombre);
 }

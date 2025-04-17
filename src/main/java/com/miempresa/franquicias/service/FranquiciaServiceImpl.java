@@ -35,4 +35,22 @@ public class FranquiciaServiceImpl implements FranquiciaService {
         return new FranquiciaDto(franquicia.getId(), franquicia.getNombre());
 
     }
+
+    @Override
+    public FranquiciaDto actualizarNombreFranquicia(Long id, String nuevoNombre) {
+
+        if (nuevoNombre == null || nuevoNombre.trim().isEmpty()) {
+            throw new IllegalArgumentException("El nuevo nombre no puede ser nulo o vacío");
+        }
+
+        Franquicia franquicia = franquiciaRepository.findById(id)
+                .orElseThrow(
+                        () -> new NotFoundException("Franquicia no encontrada: " + id)
+                );
+
+        franquicia.setNombre(nuevoNombre);
+        Franquicia franquiciaActualizada = franquiciaRepository.save(franquicia);
+
+        return new FranquiciaDto(franquiciaActualizada.getId(), franquiciaActualizada.getNombre());
+    }
 }

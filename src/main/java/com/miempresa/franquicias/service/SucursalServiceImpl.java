@@ -50,4 +50,21 @@ public class SucursalServiceImpl implements SucursalService {
                 )
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public SucursalDto actualizarNombreSucursal(Long sucursalId, String nuevoNombre) {
+
+        if (nuevoNombre == null || nuevoNombre.isEmpty()) {
+            throw new IllegalArgumentException("El nuevo nombre no puede ser nulo o vacío");
+        }
+
+        Sucursal sucursal = sucursalRepository.findById(sucursalId)
+                .orElseThrow(
+                        () -> new NotFoundException("Sucursal no encontrada: " + sucursalId)
+                );
+
+        sucursal.setNombre(nuevoNombre);
+        Sucursal sucursalActualizada = sucursalRepository.save(sucursal);
+        return new SucursalDto(sucursalActualizada.getId(), sucursalActualizada.getNombre(), sucursalActualizada.getFranquicia().getId());
+    }
 }

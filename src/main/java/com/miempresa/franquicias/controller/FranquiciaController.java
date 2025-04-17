@@ -1,5 +1,6 @@
 package com.miempresa.franquicias.controller;
 
+import com.miempresa.franquicias.dto.ActualizarNombreRequest;
 import com.miempresa.franquicias.dto.FranquiciaDto;
 import com.miempresa.franquicias.service.FranquiciaService;
 import lombok.RequiredArgsConstructor;
@@ -26,5 +27,11 @@ public class FranquiciaController {
         return franquiciaService.obtenerFranquiciaPorId(id);
     }
 
+    @PatchMapping("/{id}/nombre")
+    public FranquiciaDto actualizarNombreFranquicia(
+            @PathVariable Long id,
+            @RequestBody ActualizarNombreRequest request) {
+        return franquiciaService.actualizarNombreFranquicia(id, request.getNuevoNombre());
+    }
 
 }
