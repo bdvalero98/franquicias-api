@@ -13,7 +13,25 @@
 # Logs y temporales
 *.log
 *.tmp
+*.temp
 
-# Archivos de sistema
+# Archivos de configuración de entornos locales
+.env
+.env.local
+.env.*.local
+
+# Archivos de caché y temporales
+.cache/
+
+# Archivos de sistema de control de versiones
+.git/
+.svn/
+.hg/
+
+# Archivos generados por el sistema operativo
 .DS_Store
 Thumbs.db
+
+# Archivos ocultos de MacOS
+.AppleDouble
+.LSOverride
