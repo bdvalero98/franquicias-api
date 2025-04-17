@@ -2,8 +2,10 @@ package com.miempresa.franquicias.service;
 
 import com.miempresa.franquicias.dto.ProductoDto;
 import com.miempresa.franquicias.exception.NotFoundException;
+import com.miempresa.franquicias.model.Franquicia;
 import com.miempresa.franquicias.model.Producto;
 import com.miempresa.franquicias.model.Sucursal;
+import com.miempresa.franquicias.repository.FranquiciaRepository;
 import com.miempresa.franquicias.repository.ProductoRepository;
 import com.miempresa.franquicias.repository.SucursalRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -27,6 +29,9 @@ class ProductoServiceImplTest {
 
     @Mock
     private SucursalRepository sucursalRepository;
+
+    @Mock
+    private FranquiciaRepository franquiciaRepository;
 
     @InjectMocks
     private ProductoServiceImpl service;
@@ -89,4 +94,28 @@ class ProductoServiceImplTest {
 
         assertEquals(99, result.getStock());
     }
+
+    @Test
+    void obtenerTopStockPorSucursalDeFranquicia_DeberiaRetornarCorrectamente() {
+        Franquicia franquicia = new Franquicia(1L, "Franquicia 1", new ArrayList<>());
+
+        Sucursal s1 = new Sucursal(1L, "Sucursal 1", franquicia, new ArrayList<>());
+        Sucursal s2 = new Sucursal(2L, "Sucursal 2", franquicia, new ArrayList<>());
+        franquicia.setSucursales(List.of(s1, s2));
+
+        Producto p1 = new Producto(1L, "Café", 100, s1);
+        Producto p2 = new Producto(2L, "Té", 150, s1);
+        Producto p3 = new Producto(3L, "Chocolate", 80, s2);
+
+        when(franquiciaRepository.findById(1L)).thenReturn(Optional.of(franquicia));
+        when(productoRepository.findBySucursalId(1L)).thenReturn(List.of(p1, p2));
+        when(productoRepository.findBySucursalId(2L)).thenReturn(List.of(p3));
+
+        List<ProductoDto> result = service.obtenerTopStockPorSucursalDeFranquicia(1L);
+
+        assertEquals(2, result.size());
+        assertTrue(result.stream().anyMatch(p -> p.getNombre().equals("Té")));
+        assertTrue(result.stream().anyMatch(p -> p.getNombre().equals("Chocolate")));
+    }
+
 }
