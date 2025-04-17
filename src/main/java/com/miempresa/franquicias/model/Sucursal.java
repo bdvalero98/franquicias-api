@@ -2,15 +2,18 @@ package com.miempresa.franquicias.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name = "sucursales")
+@Builder
 public class Sucursal {
 
     @Id
@@ -25,5 +28,5 @@ public class Sucursal {
     private Franquicia franquicia;
 
     @OneToMany(mappedBy = "sucursal", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Producto> productos = new ArrayList<>();
+    private List<Producto> productos;
 }
