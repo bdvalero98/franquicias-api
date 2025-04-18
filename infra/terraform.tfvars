@@ -1,0 +1,8 @@
+aws_region         = "us-east-1"
+db_instance_class  = "db.t3.micro"
+db_name            = "franquicia"
+db_user            = "admin"
+db_password        = "SuperSecurePass123"
+ec2_instance_type  = "t2.micro"
+app_key_pair       = "franquicia-keypair"
+ami_id             = "ami-053b0d53c279acc90"
