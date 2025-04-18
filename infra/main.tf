@@ -55,12 +55,12 @@ resource "aws_instance" "franquicia_app" {
               yum update -y
               yum install -y docker git
               service docker start
-              usermod -a -G docker ec2-user
+              usermod -a -G docker ubuntu
               docker run -d -p 8080:8080 --name franquicia-api \
                 -e SPRING_DATASOURCE_URL=jdbc:mysql://${aws_db_instance.franquicia_db.address}:3306/${var.db_name} \
                 -e SPRING_DATASOURCE_USERNAME=${var.db_user} \
                 -e SPRING_DATASOURCE_PASSWORD=${var.db_password} \
-                brayandanilo/franquicia-api:latest
+                bdvalero/franquicia-api:latest
               EOF
 
   tags = {
