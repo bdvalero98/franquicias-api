@@ -1,11 +1,10 @@
 package com.miempresa.franquicias.repository;
 
-import com.miempresa.franquicias.model.Franquicia;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import com.miempresa.franquicias.entity.Franquicia;
+import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
+import reactor.core.publisher.Mono;
 
-@Repository
-public interface FranquiciaRepository extends JpaRepository<Franquicia, Long> {
+public interface FranquiciaRepository extends ReactiveMongoRepository<Franquicia, String> {
 
-    boolean existsByNombre(String nombre);
+    Mono<Franquicia> findByNombre(String nombre);
 }

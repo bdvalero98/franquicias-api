@@ -35,6 +35,16 @@ variable "app_key_pair" {
 }
 
 variable "ami_id" {
-  description = "AMI para la instancia EC2"
+  description = "AMI para la instancia EC2 (Ubuntu)"
+  type        = string
+}
+
+variable "s3_bucket" {
+  description = "Nombre del bucket S3 donde está el zip del proyecto"
+  type        = string
+}
+
+variable "s3_zip_url" {
+  description = "URL pública del archivo .zip del proyecto"
   type        = string
 }
