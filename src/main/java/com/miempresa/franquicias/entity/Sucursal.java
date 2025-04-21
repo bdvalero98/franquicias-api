@@ -1,19 +1,17 @@
-package com.miempresa.franquicias.dto;
+package com.miempresa.franquicias.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductoDto {
-
-    private Long id;
+public class Sucursal {
 
     private String nombre;
 
-    private Integer stock;
-
-    private Long sucursalId;
+    private List<Producto> productos;
 }
