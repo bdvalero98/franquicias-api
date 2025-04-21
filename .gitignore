@@ -35,3 +35,5 @@ Thumbs.db
 # Archivos ocultos de MacOS
 .AppleDouble
 .LSOverride
+
+.terraform/
