@@ -152,13 +152,9 @@ public class FranquiciaServiceImpl implements FranquiciaService {
                 .map(franquicia -> {
                     franquicia.getSucursales().stream()
                             .filter(s -> s.getNombre().equalsIgnoreCase(nombreSucursal))
-                            .findFirst()
-                            .ifPresent(sucursal -> {
-                                sucursal.getProductos().stream()
-                                        .filter(p -> p.getNombre().equalsIgnoreCase(nombreProductoActual))
-                                        .findFirst()
-                                        .ifPresent(p -> p.setNombre(nuevoNombre));
-                            });
+                            .findFirst().flatMap(sucursal -> sucursal.getProductos().stream()
+                                    .filter(p -> p.getNombre().equalsIgnoreCase(nombreProductoActual))
+                                    .findFirst()).ifPresent(p -> p.setNombre(nuevoNombre));
                     return franquicia;
                 })
                 .flatMap(franquiciaRepository::save);
