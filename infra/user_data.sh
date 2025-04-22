@@ -25,8 +25,18 @@ cd /home/ubuntu
 unzip franquicia-api.zip
 cd franquicia-api
 
-# Ejecutar docker-compose para levantar el contenedor
-docker-compose up -d
+# Login a ECR (sin interacción)
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ***.dkr.ecr.us-east-1.amazonaws.com
+
+# Extraer la última imagen desde ECR
+docker pull ***.dkr.ecr.us-east-1.amazonaws.com/franquicias-api-ecr:latest
+
+# Detener contenedor previo (si existe)
+docker stop franquicia-api || true
+docker rm franquicia-api || true
+
+# Iniciar nuevo contenedor
+docker run -d -p 8080:8080 --name franquicia-api ***.dkr.ecr.us-east-1.amazonaws.com/franquicias-api-ecr:latest
 
 # Comprobar si Docker y Docker Compose están funcionando correctamente
 docker --version
