@@ -58,4 +58,29 @@ public class FranquiciaController {
     public Flux<String> obtenerProductoConMasStockPorSucursal(@PathVariable String franquiciaId) {
         return franquiciaService.obtenerProductoConMasStockPorSucursal(franquiciaId);
     }
+
+    @PatchMapping("/{franquiciaId}/actualizar-nombre")
+    public Mono<Franquicia> actualizarNombreFranquicia(
+            @PathVariable String franquiciaId,
+            @RequestParam String nuevoNombre) {
+        return franquiciaService.actualizarNombreFranquicia(franquiciaId, nuevoNombre);
+    }
+
+    @PatchMapping("/{franquiciaId}/sucursales/actualizar-nombre")
+    public Mono<Franquicia> actualizarNombreSucursal(
+            @PathVariable String franquiciaId,
+            @RequestParam String nombreActual,
+            @RequestParam String nuevoNombre) {
+        return franquiciaService.actualizarNombreSucursal(franquiciaId, nombreActual, nuevoNombre);
+    }
+
+    @PatchMapping("/{franquiciaId}/sucursales/{sucursalNombre}/productos/actualizar-nombre")
+    public Mono<Franquicia> actualizarNombreProducto(
+            @PathVariable String franquiciaId,
+            @PathVariable String sucursalNombre,
+            @RequestParam String nombreActual,
+            @RequestParam String nuevoNombre) {
+        return franquiciaService.actualizarNombreProducto(franquiciaId, sucursalNombre, nombreActual, nuevoNombre);
+    }
+
 }

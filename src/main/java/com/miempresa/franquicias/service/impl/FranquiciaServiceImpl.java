@@ -122,4 +122,46 @@ public class FranquiciaServiceImpl implements FranquiciaService {
                         }
                 );
     }
+
+    @Override
+    public Mono<Franquicia> actualizarNombreFranquicia(String franquiciaId, String nuevoNombre) {
+        return franquiciaRepository.findById(franquiciaId)
+                .map(franquicia -> {
+                    franquicia.setNombre(nuevoNombre);
+                    return franquicia;
+                })
+                .flatMap(franquiciaRepository::save);
+    }
+
+    @Override
+    public Mono<Franquicia> actualizarNombreSucursal(String franquiciaId, String nombreSucursalActual, String nuevoNombre) {
+        return franquiciaRepository.findById(franquiciaId)
+                .map(franquicia -> {
+                    franquicia.getSucursales().stream()
+                            .filter(s -> s.getNombre().equalsIgnoreCase(nombreSucursalActual))
+                            .findFirst()
+                            .ifPresent(s -> s.setNombre(nuevoNombre));
+                    return franquicia;
+                })
+                .flatMap(franquiciaRepository::save);
+    }
+
+    @Override
+    public Mono<Franquicia> actualizarNombreProducto(String franquiciaId, String nombreSucursal, String nombreProductoActual, String nuevoNombre) {
+        return franquiciaRepository.findById(franquiciaId)
+                .map(franquicia -> {
+                    franquicia.getSucursales().stream()
+                            .filter(s -> s.getNombre().equalsIgnoreCase(nombreSucursal))
+                            .findFirst()
+                            .ifPresent(sucursal -> {
+                                sucursal.getProductos().stream()
+                                        .filter(p -> p.getNombre().equalsIgnoreCase(nombreProductoActual))
+                                        .findFirst()
+                                        .ifPresent(p -> p.setNombre(nuevoNombre));
+                            });
+                    return franquicia;
+                })
+                .flatMap(franquiciaRepository::save);
+    }
+
 }
