@@ -14,6 +14,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Set AWS region
+        run: echo "AWS_REGION=us-east-1" >> $GITHUB_ENV
+
       - name: Log in to AWS ECR
         uses: aws-actions/amazon-ecr-login@v1
         with:
