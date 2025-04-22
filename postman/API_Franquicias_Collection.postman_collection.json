@@ -1,0 +1,317 @@
+{
+	"info": {
+		"_postman_id": "0c875977-a166-4070-b2a6-e4532942fb4c",
+		"name": "API Franquicias",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13718090"
+	},
+	"item": [
+		{
+			"name": "Crear Franquicia",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Franquicia Ejemplo\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/franquicias",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"franquicias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar Sucursal",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/franquicias/6806f032f1b10f72843346ae/sucursales?nombreSucursal=Sucursal Norte",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"franquicias",
+						"6806f032f1b10f72843346ae",
+						"sucursales"
+					],
+					"query": [
+						{
+							"key": "nombreSucursal",
+							"value": "Sucursal Norte"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar Producto",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/franquicias/6806f032f1b10f72843346ae/sucursales/Sucursal Norte/productos?nombreProducto=Café&stock=50",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"franquicias",
+						"6806f032f1b10f72843346ae",
+						"sucursales",
+						"Sucursal Norte",
+						"productos"
+					],
+					"query": [
+						{
+							"key": "nombreProducto",
+							"value": "Café"
+						},
+						{
+							"key": "stock",
+							"value": "50"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Producto",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/franquicias/6806f032f1b10f72843346ae/sucursales/Sucursal Norte/productos?nombreProducto=Café",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"franquicias",
+						"6806f032f1b10f72843346ae",
+						"sucursales",
+						"Sucursal Norte",
+						"productos"
+					],
+					"query": [
+						{
+							"key": "nombreProducto",
+							"value": "Café"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar Stock",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/franquicias/6806f032f1b10f72843346ae/sucursales/Sucursal Norte/productos/stock?nombreProducto=Café&nuevoStock=100",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"franquicias",
+						"6806f032f1b10f72843346ae",
+						"sucursales",
+						"Sucursal Norte",
+						"productos",
+						"stock"
+					],
+					"query": [
+						{
+							"key": "nombreProducto",
+							"value": "Café"
+						},
+						{
+							"key": "nuevoStock",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Producto con más stock por Sucursal",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/franquicias/6806f032f1b10f72843346ae/productos-max-stock",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"franquicias",
+						"6806f032f1b10f72843346ae",
+						"productos-max-stock"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar nombre de Franquicia",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/franquicias/6806f032f1b10f72843346ae/actualizar-nombre?nuevoNombre=NuevoNombreFranquicia",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"franquicias",
+						"6806f032f1b10f72843346ae",
+						"actualizar-nombre"
+					],
+					"query": [
+						{
+							"key": "nuevoNombre",
+							"value": "NuevoNombreFranquicia"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar nombre de Sucursal",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/franquicias/6806f032f1b10f72843346ae/sucursales/actualizar-nombre?nombreActual=Sucursal Norte&nuevoNombre=Sucursal Sur",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"franquicias",
+						"6806f032f1b10f72843346ae",
+						"sucursales",
+						"actualizar-nombre"
+					],
+					"query": [
+						{
+							"key": "nombreActual",
+							"value": "Sucursal Norte"
+						},
+						{
+							"key": "nuevoNombre",
+							"value": "Sucursal Sur"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar nombre de Producto",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/franquicias/6806f032f1b10f72843346ae/sucursales/Sucursal Sur/productos/actualizar-nombre?nombreActual=Café&nuevoNombre=Latte",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"franquicias",
+						"6806f032f1b10f72843346ae",
+						"sucursales",
+						"Sucursal Sur",
+						"productos",
+						"actualizar-nombre"
+					],
+					"query": [
+						{
+							"key": "nombreActual",
+							"value": "Café"
+						},
+						{
+							"key": "nuevoNombre",
+							"value": "Latte"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

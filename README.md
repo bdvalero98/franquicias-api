@@ -107,6 +107,32 @@ Esto iniciará:
 
 ---
 
+## 🧪 Pruebas
+Se incluyeron pruebas unitarias para validar la lógica de negocio de las franquicias, sucursales y productos.
+```bash
+./gradlew test
+```
+Estas pruebas aseguran los principales flujos: creación, actualización, eliminación y búsquedas dentro de la lógica reactiva.
+
+---
+
+## 📬 Colección Postman
+
+Puedes probar los endpoints importando la colección Postman incluida en el repositorio:
+
+📁 `postman/API_Franquicias_Collection.postman_collection.json`
+
+### Instrucciones:
+
+1. Abre **Postman**.
+2. Haz clic en **Import**.
+3. Selecciona **Upload Files**.
+4. Carga el archivo `API_Franquicias_Collection.postman_collection.json`.
+
+Esto cargará todos los endpoints configurados para que puedas probar la API localmente de forma inmediata.
+
+---
+
 ## 🧼 Apagar los servicios
 
 ```bash
