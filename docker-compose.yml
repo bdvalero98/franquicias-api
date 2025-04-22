@@ -1,31 +1,29 @@
-# docker-compose.yml
 version: '3.8'
 
 services:
-  db:
-    image: mysql:8.0
-    env_file:
-      - .env
-    environment:
-      MYSQL_ROOT_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
-      MYSQL_DATABASE: franquicias
+  mongo:
+    image: mongo:6.0
+    container_name: mongo-fra
+    restart: always
     ports:
-      - "3306:3306"
-    volumes:
-      - db_data:/var/lib/mysql
-
-  app:
-    build: .
-    env_file:
-      - .env
+      - "27017:27017"
     environment:
-      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
-      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
-      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    volumes:
+      - mongo-data:/data/db
+
+  franquicia-api:
+    build:
+      context: . # El contexto es el directorio actual
+      dockerfile: Dockerfile
+    container_name: franquicia-api
     ports:
       - "8080:8080"
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@mongo:27017/${MONGO_DB_NAME}?authSource=admin
     depends_on:
-      - db
+      - mongo
 
 volumes:
-  db_data:
+  mongo-data:
