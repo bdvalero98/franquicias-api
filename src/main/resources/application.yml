@@ -1,10 +1,4 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/franquiciasdb
-  webflux:
-    base-path: /api
-  main:
-    banner-mode: off
-server:
-  port: 8080
+      uri: ${SPRING_DATA_MONGODB_URI}
