@@ -4,7 +4,7 @@ variable "region" {
 }
 
 variable "instance_type" {
-  default = "t3.micro"
+  default = "t2.micro"
 }
 
 variable "key_pair_name" {

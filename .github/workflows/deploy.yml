@@ -1,0 +1,41 @@
+name: Deploy API to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Log in to AWS ECR
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Build Docker image
+        run: |
+          docker build -t franquicia-api .
+
+      - name: Tag Docker image
+        run: |
+          docker tag franquicia-api:latest ${{ secrets.ECR_REPOSITORY_URI }}:latest
+
+      - name: Push to ECR
+        run: |
+          docker push ${{ secrets.ECR_REPOSITORY_URI }}:latest
+
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_KEY }}
+          script: |
+            docker pull ${{ secrets.ECR_REPOSITORY_URI }}:latest
+            docker stop franquicia-api || true && docker rm franquicia-api || true
+            docker run -d -p 8080:8080 --name franquicia-api ${{ secrets.ECR_REPOSITORY_URI }}:latest
