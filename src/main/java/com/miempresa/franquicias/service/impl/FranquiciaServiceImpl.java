@@ -134,7 +134,8 @@ public class FranquiciaServiceImpl implements FranquiciaService {
     }
 
     @Override
-    public Mono<Franquicia> actualizarNombreSucursal(String franquiciaId, String nombreSucursalActual, String nuevoNombre) {
+    public Mono<Franquicia> actualizarNombreSucursal(String franquiciaId, String nombreSucursalActual,
+                                                     String nuevoNombre) {
         return franquiciaRepository.findById(franquiciaId)
                 .map(franquicia -> {
                     franquicia.getSucursales().stream()
@@ -147,7 +148,8 @@ public class FranquiciaServiceImpl implements FranquiciaService {
     }
 
     @Override
-    public Mono<Franquicia> actualizarNombreProducto(String franquiciaId, String nombreSucursal, String nombreProductoActual, String nuevoNombre) {
+    public Mono<Franquicia> actualizarNombreProducto(String franquiciaId, String nombreSucursal,
+                                                     String nombreProductoActual, String nuevoNombre) {
         return franquiciaRepository.findById(franquiciaId)
                 .map(franquicia -> {
                     franquicia.getSucursales().stream()
@@ -159,5 +161,4 @@ public class FranquiciaServiceImpl implements FranquiciaService {
                 })
                 .flatMap(franquiciaRepository::save);
     }
-
 }
