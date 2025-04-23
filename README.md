@@ -88,23 +88,20 @@ Esto iniciará:
 📍 **Base URL**: `http://localhost:8080`
 
 ### Franquicia
-- `POST /franquicias`
-- `GET /franquicias`
-- `PUT /franquicias/{id}` 🔁
-- `GET /franquicias/{id}/productos-mas-stock`
+- `POST /api/franquicias`
+- `PATCH /api/franquicias/{franquiciaId}/actualizar-nombre?nuevoNombre={NuevoNombreFranquicia}`
+
 
 ### Sucursal
-- `POST /franquicias/{id}/sucursales`
-- `GET /franquicias/{id}/sucursales`
-- `PUT /franquicias/{franquiciaId}/sucursales/{sucursalId}` 🔁
+- `POST /api/franquicias/{franquiciaId}/sucursales?nombreSucursal={sucursalNombre}`
+- `PATCH /api/franquicias/{franquiciaId}/sucursales/actualizar-nombre?nombreActual={nombreActual}&nuevoNombre={nuevoNombre}`
 
 ### Producto
-- `POST /sucursales/{id}/productos`
-- `GET /sucursales/{id}/productos`
-- `PUT /sucursales/{sucursalId}/productos/{productoId}/stock`
-- `PUT /sucursales/{sucursalId}/productos/{productoId}/nombre` 🔁
-- `DELETE /sucursales/{sucursalId}/productos/{productoId}`
-
+- `POST /api/franquicias/{franquiciaId}/sucursales/{sucursal nombre}/productos?nombreProducto={productoNombre}&stock={stock}`
+- `DELETE /api/franquicias/{franquiciaId}/sucursales/{sucursal nombre}/productos?nombreProducto={productoNombre}`
+- `PATCH /api/franquicias/{franquiciaId}/sucursales/{sucursal nombre}/productos/{producto nombre}?stock={nuevoStock}`
+- `GET /api/franquicias/{franquiciaId}//productos-max-stock`
+- `PATCH /api/franquicias/{franquiciaId}/sucursales/{nombreSucursal}/productos/actualizar-nombre?nombreActual={nombreActual}&nuevoNombre={nuevoNombre}`
 ---
 
 ## 🧪 Pruebas
