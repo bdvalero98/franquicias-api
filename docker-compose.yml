@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   mongo:
     image: mongo:6.0
@@ -13,7 +15,7 @@ services:
 
   franquicia-api:
     build:
-      context: .
+      context: . # El contexto es el directorio actual
       dockerfile: Dockerfile
     container_name: franquicia-api
     ports:
