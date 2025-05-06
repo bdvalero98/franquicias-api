@@ -1,15 +1,15 @@
 # 🏪 Franquicias API
 
-API desarrollada en **Java 21** con **Spring Boot WebFlux** para la gestión de franquicias, sucursales y productos. Implementa una arquitectura reactiva, empaquetada con Docker y lista para ejecutarse localmente.
+API desarrollada en **Java 21** con **Spring Boot WebFlux** para la gestión de franquicias, sucursales y products. Implementa una arquitectura reactiva, empaquetada con Docker y lista para ejecutarse localmente.
 
 ---
 
 ## 📋 Descripción de la prueba técnica
 
 Construcción de una API para manejar una lista de franquicias.  
-- Una **franquicia** contiene un **nombre** y un listado de **sucursales**.  
-- Cada **sucursal** tiene un **nombre** y una lista de **productos**.  
-- Cada **producto** tiene un **nombre** y una **cantidad de stock**.
+- Una **franchise** contiene un **nombre** y un listado de **sucursales**.  
+- Cada **branch** tiene un **nombre** y una lista de **products**.  
+- Cada **product** tiene un **nombre** y una **cantidad de stock**.
 
 ---
 
@@ -18,18 +18,18 @@ Construcción de una API para manejar una lista de franquicias.
 | Criterio                                                         | Cumplido |
 |------------------------------------------------------------------|----------|
 | Proyecto desarrollado en Spring Boot                             | ✅       |
-| Endpoint para agregar franquicia                                 | ✅       |
-| Endpoint para agregar sucursal a franquicia                      | ✅       |
-| Endpoint para agregar producto a sucursal                        | ✅       |
-| Endpoint para eliminar producto de una sucursal                  | ✅       |
-| Endpoint para modificar el stock de un producto                  | ✅       |
-| Endpoint para ver el producto con más stock por sucursal         | ✅       |
+| Endpoint para agregar franchise                                 | ✅       |
+| Endpoint para agregar branch a franchise                      | ✅       |
+| Endpoint para agregar product a branch                        | ✅       |
+| Endpoint para eliminar product de una branch                  | ✅       |
+| Endpoint para modificar el stock de un product                  | ✅       |
+| Endpoint para ver el product con más stock por branch         | ✅       |
 | Uso de MongoDB como sistema de persistencia                      | ✅       |
 | Aplicación empaquetada con Docker                                | ✅       |
 | Uso de programación funcional y reactiva (Spring WebFlux)        | ✅       |
-| Endpoint para actualizar nombre de franquicia                    | ✅       |
-| Endpoint para actualizar nombre de sucursal                      | ✅       |
-| Endpoint para actualizar nombre de producto                      | ✅       |
+| Endpoint para actualizar nombre de franchise                    | ✅       |
+| Endpoint para actualizar nombre de branch                      | ✅       |
+| Endpoint para actualizar nombre de product                      | ✅       |
 | Infraestructura como código (Terraform) para despliegue en AWS   | ✅       |
 | Despliegue completo en la nube                                   | ❌       |
 
@@ -97,15 +97,15 @@ Esto iniciará:
 - `PATCH /api/franquicias/{franquiciaId}/sucursales/actualizar-nombre?nombreActual={nombreActual}&nuevoNombre={nuevoNombre}`
 
 ### Producto
-- `POST /api/franquicias/{franquiciaId}/sucursales/{sucursal nombre}/productos?nombreProducto={productoNombre}&stock={stock}`
-- `DELETE /api/franquicias/{franquiciaId}/sucursales/{sucursal nombre}/productos?nombreProducto={productoNombre}`
-- `PATCH /api/franquicias/{franquiciaId}/sucursales/{sucursal nombre}/productos/{producto nombre}?stock={nuevoStock}`
-- `GET /api/franquicias/{franquiciaId}//productos-max-stock`
-- `PATCH /api/franquicias/{franquiciaId}/sucursales/{nombreSucursal}/productos/actualizar-nombre?nombreActual={nombreActual}&nuevoNombre={nuevoNombre}`
+- `POST /api/franquicias/{franquiciaId}/sucursales/{branch nombre}/products?nombreProducto={productoNombre}&stock={stock}`
+- `DELETE /api/franquicias/{franquiciaId}/sucursales/{branch nombre}/products?nombreProducto={productoNombre}`
+- `PATCH /api/franquicias/{franquiciaId}/sucursales/{branch nombre}/products/{product nombre}?stock={nuevoStock}`
+- `GET /api/franquicias/{franquiciaId}//products-max-stock`
+- `PATCH /api/franquicias/{franquiciaId}/sucursales/{nombreSucursal}/products/actualizar-nombre?nombreActual={nombreActual}&nuevoNombre={nuevoNombre}`
 ---
 
 ## 🧪 Pruebas
-Se incluyeron pruebas unitarias para validar la lógica de negocio de las franquicias, sucursales y productos.
+Se incluyeron pruebas unitarias para validar la lógica de negocio de las franquicias, sucursales y products.
 ```bash
 ./gradlew test
 ```

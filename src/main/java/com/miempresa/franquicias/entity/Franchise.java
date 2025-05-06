@@ -8,16 +8,16 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-@Document(collection = "franquicias")
+@Document(collection = "franchises")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Franquicia {
+public class Franchise {
 
     @Id
     private String id;
 
-    private String nombre;
+    private String name;
 
-    private List<Sucursal> sucursales;
+    private List<Branch> branches;
 }
