@@ -4,12 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Producto {
+public class Branch {
 
-    private String nombre;
+    private String name;
 
-    private int stock;
+    private List<Product> products;
 }

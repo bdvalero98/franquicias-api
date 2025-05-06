@@ -18,10 +18,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nombre\": \"Franquicia Ejemplo\"\n}"
+					"raw": "{\n    \"nombre\": \"prueba3\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/franquicias",
+					"raw": "http://localhost:8080/api/franchises",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -29,7 +29,7 @@
 					"port": "8080",
 					"path": [
 						"api",
-						"franquicias"
+						"franchises"
 					]
 				}
 			},
@@ -46,7 +46,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/api/franquicias/6806f032f1b10f72843346ae/sucursales?nombreSucursal=Sucursal Norte",
+					"raw": "http://localhost:8080/api/franchises/68074c359284402a216d0429/branches?branchName=Sucursal Norte",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -54,13 +54,13 @@
 					"port": "8080",
 					"path": [
 						"api",
-						"franquicias",
-						"6806f032f1b10f72843346ae",
-						"sucursales"
+						"franchises",
+						"68074c359284402a216d0429",
+						"branches"
 					],
 					"query": [
 						{
-							"key": "nombreSucursal",
+							"key": "branchName",
 							"value": "Sucursal Norte"
 						}
 					]
@@ -79,22 +79,22 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:8080/api/franquicias/6806f032f1b10f72843346ae/sucursales/Sucursal Norte/productos?nombreProducto=Café&stock=50",
+					"raw": "localhost:8080/api/franchises/68074c359284402a216d0429/branches/Sucursal Norte/products?productName=Café&stock=50",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"api",
-						"franquicias",
-						"6806f032f1b10f72843346ae",
-						"sucursales",
+						"franchises",
+						"68074c359284402a216d0429",
+						"branches",
 						"Sucursal Norte",
-						"productos"
+						"products"
 					],
 					"query": [
 						{
-							"key": "nombreProducto",
+							"key": "productName",
 							"value": "Café"
 						},
 						{
@@ -117,22 +117,22 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:8080/api/franquicias/6806f032f1b10f72843346ae/sucursales/Sucursal Norte/productos?nombreProducto=Café",
+					"raw": "localhost:8080/api/franchises/6806f032f1b10f72843346ae/branches/Sucursal Norte/products?productName=Café",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"api",
-						"franquicias",
+						"franchises",
 						"6806f032f1b10f72843346ae",
-						"sucursales",
+						"branches",
 						"Sucursal Norte",
-						"productos"
+						"products"
 					],
 					"query": [
 						{
-							"key": "nombreProducto",
+							"key": "productName",
 							"value": "Café"
 						}
 					]
@@ -151,27 +151,27 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:8080/api/franquicias/6806f032f1b10f72843346ae/sucursales/Sucursal Norte/productos/stock?nombreProducto=Café&nuevoStock=100",
+					"raw": "localhost:8080/api/franchises/6806f032f1b10f72843346ae/branches/Sucursal Norte/products/stock?productName=Café&newStock=100",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"api",
-						"franquicias",
+						"franchises",
 						"6806f032f1b10f72843346ae",
-						"sucursales",
+						"branches",
 						"Sucursal Norte",
-						"productos",
+						"products",
 						"stock"
 					],
 					"query": [
 						{
-							"key": "nombreProducto",
+							"key": "productName",
 							"value": "Café"
 						},
 						{
-							"key": "nuevoStock",
+							"key": "newStock",
 							"value": "100"
 						}
 					]
@@ -190,16 +190,16 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:8080/api/franquicias/6806f032f1b10f72843346ae/productos-max-stock",
+					"raw": "localhost:8080/api/franchises/6806f032f1b10f72843346ae/top-stock-products",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"api",
-						"franquicias",
+						"franchises",
 						"6806f032f1b10f72843346ae",
-						"productos-max-stock"
+						"top-stock-products"
 					]
 				}
 			},
@@ -216,20 +216,20 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:8080/api/franquicias/6806f032f1b10f72843346ae/actualizar-nombre?nuevoNombre=NuevoNombreFranquicia",
+					"raw": "localhost:8080/api/franchises/6806f032f1b10f72843346ae/name?newName=NuevoNombreFranquicia",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"api",
-						"franquicias",
+						"franchises",
 						"6806f032f1b10f72843346ae",
-						"actualizar-nombre"
+						"name"
 					],
 					"query": [
 						{
-							"key": "nuevoNombre",
+							"key": "newName",
 							"value": "NuevoNombreFranquicia"
 						}
 					]
@@ -248,25 +248,25 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:8080/api/franquicias/6806f032f1b10f72843346ae/sucursales/actualizar-nombre?nombreActual=Sucursal Norte&nuevoNombre=Sucursal Sur",
+					"raw": "localhost:8080/api/franchises/6806f032f1b10f72843346ae/branches/name?currentName=Sucursal Norte&newName=Sucursal Sur",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"api",
-						"franquicias",
+						"franchises",
 						"6806f032f1b10f72843346ae",
-						"sucursales",
-						"actualizar-nombre"
+						"branches",
+						"name"
 					],
 					"query": [
 						{
-							"key": "nombreActual",
+							"key": "currentName",
 							"value": "Sucursal Norte"
 						},
 						{
-							"key": "nuevoNombre",
+							"key": "newName",
 							"value": "Sucursal Sur"
 						}
 					]
@@ -285,27 +285,27 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:8080/api/franquicias/6806f032f1b10f72843346ae/sucursales/Sucursal Sur/productos/actualizar-nombre?nombreActual=Café&nuevoNombre=Latte",
+					"raw": "localhost:8080/api/franchises/6806f032f1b10f72843346ae/branches/Sucursal Sur/products/name?currentName=Café&newName=Latte",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"api",
-						"franquicias",
+						"franchises",
 						"6806f032f1b10f72843346ae",
-						"sucursales",
+						"branches",
 						"Sucursal Sur",
-						"productos",
-						"actualizar-nombre"
+						"products",
+						"name"
 					],
 					"query": [
 						{
-							"key": "nombreActual",
+							"key": "currentName",
 							"value": "Café"
 						},
 						{
-							"key": "nuevoNombre",
+							"key": "newName",
 							"value": "Latte"
 						}
 					]
