@@ -1,13 +1,13 @@
 # 🏪 Franquicias API
 
-API desarrollada en **Java 21** con **Spring Boot WebFlux** para la gestión de franquicias, sucursales y products. Implementa una arquitectura reactiva, empaquetada con Docker y lista para ejecutarse localmente.
+API desarrollada en **Java 21** con **Spring Boot WebFlux** para la gestión de franquicias, branches y products. Implementa una arquitectura reactiva, empaquetada con Docker y lista para ejecutarse localmente.
 
 ---
 
 ## 📋 Descripción de la prueba técnica
 
 Construcción de una API para manejar una lista de franquicias.  
-- Una **franchise** contiene un **nombre** y un listado de **sucursales**.  
+- Una **franchise** contiene un **nombre** y un listado de **branches**.  
 - Cada **branch** tiene un **nombre** y una lista de **products**.  
 - Cada **product** tiene un **nombre** y una **cantidad de stock**.
 
@@ -88,24 +88,24 @@ Esto iniciará:
 📍 **Base URL**: `http://localhost:8080`
 
 ### Franquicia
-- `POST /api/franquicias`
-- `PATCH /api/franquicias/{franquiciaId}/actualizar-nombre?nuevoNombre={NuevoNombreFranquicia}`
+- `POST /api/franchises`
+- `PATCH /api/franchises/{franchiseId}/name?newName={newName}`
 
 
 ### Sucursal
-- `POST /api/franquicias/{franquiciaId}/sucursales?nombreSucursal={sucursalNombre}`
-- `PATCH /api/franquicias/{franquiciaId}/sucursales/actualizar-nombre?nombreActual={nombreActual}&nuevoNombre={nuevoNombre}`
+- `POST /api/franchises/{franchiseId}/branches?nombreSucursal={sucursalNombre}`
+- `PATCH /api/franquicias/{franchiseId}/branches/name?nombreActual={nombreActual}&nuevoNombre={nuevoNombre}`
 
 ### Producto
-- `POST /api/franquicias/{franquiciaId}/sucursales/{branch nombre}/products?nombreProducto={productoNombre}&stock={stock}`
-- `DELETE /api/franquicias/{franquiciaId}/sucursales/{branch nombre}/products?nombreProducto={productoNombre}`
-- `PATCH /api/franquicias/{franquiciaId}/sucursales/{branch nombre}/products/{product nombre}?stock={nuevoStock}`
-- `GET /api/franquicias/{franquiciaId}//products-max-stock`
-- `PATCH /api/franquicias/{franquiciaId}/sucursales/{nombreSucursal}/products/actualizar-nombre?nombreActual={nombreActual}&nuevoNombre={nuevoNombre}`
+- `POST /api/franquicias/{franchiseId}/branches/{branch nombre}/products?nombreProducto={productoNombre}&stock={stock}`
+- `DELETE /api/franquicias/{franchiseId}/branches/{branch nombre}/products?nombreProducto={productoNombre}`
+- `PATCH /api/franquicias/{franchiseId}/branches/{branch nombre}/products/{product nombre}?stock={nuevoStock}`
+- `GET /api/franquicias/{franchiseId}/top-stock-products`
+- `PATCH /api/franquicias/{franchiseId}/branches/{nombreSucursal}/products/name?nombreActual={nombreActual}&nuevoNombre={nuevoNombre}`
 ---
 
 ## 🧪 Pruebas
-Se incluyeron pruebas unitarias para validar la lógica de negocio de las franquicias, sucursales y products.
+Se incluyeron pruebas unitarias para validar la lógica de negocio de las franquicias, branches y products.
 ```bash
 ./gradlew test
 ```
